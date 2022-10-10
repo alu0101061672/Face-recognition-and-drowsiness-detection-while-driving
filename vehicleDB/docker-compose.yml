@@ -1,0 +1,27 @@
+version: "3.10"
+services:
+  api-core: #Api de la BD de tráfico SIMULADA
+    build:
+      dockerfile: ./Dockerfile
+      context: dgt
+    ports:
+      - "80:80"
+  api-vehicle: #Api de la bd del vehículo
+    build:
+      dockerfile: ./Dockerfile
+      context: src
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_URL=mongodb://db/vehicledb
+    depends_on:
+      - db
+  db:
+    image: mongo:latest
+    volumes:
+      - mongo-data:/var/lib/mongodb/db
+    ports:
+      - 27017:27017
+volumes:
+  mongo-data:
+    external: false

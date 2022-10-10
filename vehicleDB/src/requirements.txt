@@ -1,0 +1,4 @@
+fastapi[all]
+uvicorn == 0.16.0
+motor
+python-dateutil

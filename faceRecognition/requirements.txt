@@ -1,0 +1,9 @@
+requests
+fastapi[all]
+uvicorn
+motor
+opencv-python
+dlib
+face_recognition
+python-dateutil
+numpy

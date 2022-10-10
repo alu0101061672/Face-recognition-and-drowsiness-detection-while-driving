@@ -1,0 +1,14 @@
+version: "3.10"
+services:
+  face-recognition:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      - "8000:8000"
+    networks:
+      - vehicledb_default
+
+networks: 
+  vehicledb_default:
+    external: true
